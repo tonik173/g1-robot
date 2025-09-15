@@ -1,0 +1,15 @@
+services:
+  ros2-humble:
+    build: .
+    user: 1000:1000
+    environment:
+      - "DISPLAY"
+    volumes:
+      - /home/kaan/github/g1-robot:/home/kaan/github/g1-robot
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    # stdin_open: true
+    tty: true
+    network_mode: host
+    ipc: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
